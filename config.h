@@ -69,7 +69,7 @@ static const char *termfloat[] = { "st", "-c", "flt", "-g", "85x120+600+450" };
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask|ControlMask, XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return, spawn,	   {.v = termfloat } },
 	{ MODKEY,                       XK_semicolon, togglebar,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
