@@ -63,7 +63,12 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65" };
+static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
+
+static const char *vol_up[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
+static const char *vol_down[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
+static const char *media_mute[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
+static const char *media_toggle[] = { "playerctl", "play-pause", NULL };
 
 #include "shiftview.c"
 static const Key keys[] = {
@@ -107,11 +112,14 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	// Volume Control
-	{ 0, 				XF86XK_AudioLowerVolume,   spawn,	SHCMD("amixer -q sset Master 5%-") },
-	{ 0,				XF86XK_AudioRaiseVolume,   spawn,	SHCMD("amixer -q sset Master 5%+") },
+	{ 0, 				XF86XK_AudioLowerVolume,   spawn,	{.v = vol_up } },
+	{ 0,				XF86XK_AudioRaiseVolume,   spawn,	{.v = vol_down } },
 
 	// Mute toggle
-	{ 0,				XF86XK_AudioMute,	   spawn,	SHCMD("amixer -q sset Master toggle") },
+	{ 0,				XF86XK_AudioMute,	   spawn,	{.v = media_mute } },
+
+	// Play toggle
+	{ 0,				XF86XK_AudioPlay,	   spawn,	{.v = media_toggle } },
 
 	// shiftview.c
 	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
