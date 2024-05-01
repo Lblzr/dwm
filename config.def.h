@@ -8,14 +8,14 @@ static const unsigned int gappx     = 32;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha = 0xd0;
+static const char *fonts[]          = { "RobotoMono Nerd Font Mono:style=Bold:size=11:antialias=true:autohint=true", "JetBrainsMonoNL NF:style=Regular:size=11:antialias=true:autohint=true" };
+static const char dmenufont[]       = "RobotoMono Nerd Font:style=Bold:size=11:antialias=true:autohint=true"; 
+static const char col_gray1[]       = "#000000"; // def #222222
+static const char col_gray2[]       = "#444444"; // def #444444
+static const char col_gray3[]       = "#bbbbbb"; // def #bbbbbb
+static const char col_gray4[]       = "#ffffff"; // def #eeeeee
+static const char col_cyan[]        = "#4587c9"; // def #005577 // #9987a8 // #a3d1ff / 0054a8 / 2e96ff / #4587c9
+static const unsigned int baralpha = OPAQUE; //0xd0
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
@@ -65,6 +65,8 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+#define STATUSBAR "dwmblocks"
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -140,7 +142,9 @@ static const Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button1,        sigstatusbar,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigstatusbar,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigstatusbar,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
