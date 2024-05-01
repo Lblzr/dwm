@@ -112,8 +112,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	// Volume Control
-	{ 0, 				XF86XK_AudioLowerVolume,   spawn,	{.v = vol_up } },
-	{ 0,				XF86XK_AudioRaiseVolume,   spawn,	{.v = vol_down } },
+	{ 0, 				XF86XK_AudioRaiseVolume,   spawn,	{.v = vol_up } },
+	{ 0,				XF86XK_AudioLowerVolume,   spawn,	{.v = vol_down } },
 
 	// Mute toggle
 	{ 0,				XF86XK_AudioMute,	   spawn,	{.v = media_mute } },
