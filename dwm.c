@@ -269,7 +269,7 @@ static Display *dpy;
 static Drw *drw;
 static Monitor *mons, *selmon;
 static Window root, wmcheckwin;
-static int refresh_rate = 144;
+static int refresh_rate = 288;
 
 /* configuration, allows nested code to access above variables */
 #include "config.h"
