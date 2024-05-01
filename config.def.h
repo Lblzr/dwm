@@ -10,11 +10,13 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "RobotoMono Nerd Font Mono:style=Bold:size=11:antialias=true:autohint=true", "JetBrainsMonoNL NF:style=Regular:size=11:antialias=true:autohint=true" };
 static const char dmenufont[]       = "RobotoMono Nerd Font:style=Bold:size=11:antialias=true:autohint=true"; 
-static const char col_gray1[]       = "#000000"; // def #222222
+static const char col_gray1[]       = "#222222"; // def #222222
 static const char col_gray2[]       = "#444444"; // def #444444
 static const char col_gray3[]       = "#bbbbbb"; // def #bbbbbb
 static const char col_gray4[]       = "#ffffff"; // def #eeeeee
 static const char col_cyan[]        = "#4587c9"; // def #005577 // #9987a8 // #a3d1ff / 0054a8 / 2e96ff / #4587c9
+static const char col_white[]	    = "#000000";
+static const char col_black[]	    = "#FFFFFF";
 static const unsigned int baralpha = OPAQUE; //0xd0
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -71,6 +73,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+
 static const char *termcmd[]  = { "st", NULL };
 static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
 
