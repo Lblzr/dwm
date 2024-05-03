@@ -37,20 +37,22 @@ static const Rule rules[] = {
 	// Minecraft 
     	{ "minecraft-launcher", NULL, NULL,   1 << 2,	    0,		 -1 }, //  Tag 3 (Modify if needed)
 
-   	 // Steam 
-    	{ "Steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1 },  //  Tag 3 (Modify if needed)
+   	// Steam 
+    	{ "Steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1 }, //  Tag 3 (Modify if needed)
 
-   	 // Vivaldi
-  	  { "vivaldi-stable", NULL, NULL,     1 << 1,       0,           -1 }, //  Tag 2 (Modify if needed)
+   	// Vivaldi & Vivaldi Stable
+  	{ "Vivaldi",  NULL,	  NULL,	      1 << 1,	    0,           -1 }, //  Tag 2 (Modify if needed)
+	{ "Vivaldi-stable", NULL, NULL,	      1 << 1,	    0,		 -1 }, //  Tag 2
 
-   	 // Vesktop (Discord)
-   	 { "vesktop", NULL, 	  NULL,	      1 << 8,	    0,		 -1 }, // Tag 9 
+   	// Vesktop (Discord)
+   	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1 }, //  Tag 9 
 
-  	  // Spotify 
-   	 { "spotify", NULL,	  NULL,	      1 << 7, 	    0,		 -1 }, // Tag 8
+  	// Spotify 
+   	{ "spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1 }, //  Tag 8
 
-   	 // VLC
-  	  { "vlc",    NULL,	  NULL,	      1 << 4,	    0,		 -1 }, // Tag 5
+   	// VLC & players
+  	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1 }, //  Tag 5
+	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1 }, //  Tag 5
 };
 
 /* layout(s) */
