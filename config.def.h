@@ -34,6 +34,23 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1 },
+	// Minecraft 
+    	{ "minecraft-launcher", NULL, NULL,   1 << 2,	    0,		 -1 }, //  Tag 3 (Modify if needed)
+
+   	 // Steam 
+    	{ "Steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1 },  //  Tag 3 (Modify if needed)
+
+   	 // Vivaldi
+  	  { "vivaldi-stable", NULL, NULL,     1 << 1,       0,           -1 }, //  Tag 2 (Modify if needed)
+
+   	 // Vesktop (Discord)
+   	 { "vesktop", NULL, 	  NULL,	      1 << 8,	    0,		 -1 }, // Tag 9 
+
+  	  // Spotify 
+   	 { "spotify", NULL,	  NULL,	      1 << 7, 	    0,		 -1 }, // Tag 8
+
+   	 // VLC
+  	  { "vlc",    NULL,	  NULL,	      1 << 4,	    0,		 -1 }, // Tag 5
 };
 
 /* layout(s) */
