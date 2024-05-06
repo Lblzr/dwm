@@ -95,9 +95,15 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbordercolor, "-sf", selfgcolor, NULL };
 
+// terminal
 static const char *termcmd[]  = { "st", NULL };
 static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
 
+// clipboard
+static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
+static const char *scrclip[] = { "maim", "-o", "-s", "|", "xclip", "-selection", "clipboard", "-t", "image/png", NULL };
+
+// volume
 static const char *vol_up[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
 static const char *vol_down[] = { "amixer", "-q", "sset", "Master", "5%-", NULL };
 static const char *media_mute[] = { "amixer", "-q", "sset", "Master", "toggle", NULL };
@@ -136,6 +142,14 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	{ MODKEY,			XK_F5,	   xrdb,	   {.v = NULL} },
+	{ 0, 				XF86XK_AudioRaiseVolume,   spawn,	{.v = vol_up } },
+	{ 0,				XF86XK_AudioLowerVolume,   spawn,	{.v = vol_down } },
+	{ 0,				XF86XK_AudioMute,	   spawn,	{.v = media_mute } },
+	{ 0,				XF86XK_AudioPlay,	   spawn,	{.v = media_toggle } },
+	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
+	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } },
+	{ MODKEY,			XK_v,	   spawn,	   {.v = clipcmd} },
+	{ 0,				XK_Print,  spawn,	   {.v = scrclip} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -146,20 +160,6 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-
-	// Volume Control
-	{ 0, 				XF86XK_AudioRaiseVolume,   spawn,	{.v = vol_up } },
-	{ 0,				XF86XK_AudioLowerVolume,   spawn,	{.v = vol_down } },
-
-	// Mute toggle
-	{ 0,				XF86XK_AudioMute,	   spawn,	{.v = media_mute } },
-
-	// Play toggle
-	{ 0,				XF86XK_AudioPlay,	   spawn,	{.v = media_toggle } },
-
-	// shiftview.c
-	{ MODKEY,			XK_b,	   shiftview,	   {.i = -1 } },
-	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } },
 };
 
 /* button definitions */
