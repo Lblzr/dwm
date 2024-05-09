@@ -101,7 +101,7 @@ static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
-static const char *scrclip[] = { "maim", "-o", "-s", "|", "xclip", "-selection", "clipboard", "-t", "image/png", NULL };
+static const char *scrclip[] = { "sh", "-c", "maim -o -s | xclip -selection clipboard -t image/png" };
 
 // volume
 static const char *vol_up[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
