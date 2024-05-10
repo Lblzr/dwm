@@ -19,39 +19,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3610f71e-46e1-4c40-b0fa-4255b3522a07" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.def.h" beforeDir="false" afterPath="$PROJECT_DIR$/config.def.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drw.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dwm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dwm.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-battery" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-clock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-cpu" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-cpubars" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-disk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-doppler" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-forecast" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-help-icon" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-internet" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-iplocate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-kbselect" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-mailbox" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-memory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-moonphase" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-mpdup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-music" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-nettraf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-news" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-pacpackages" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-popupgrade" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-price" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-tasks" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-torrent" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/dwmblocks-async/sb-volume" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/util.o" beforeDir="false" />
+    <list default="true" id="3610f71e-46e1-4c40-b0fa-4255b3522a07" name="Changes" comment="STABLE: The previous command syntax for screenshot clipping was malfunctioning. This was due to maim and xclip being used as separate commands. With this commit, they are combined into a single shell command ensuring proper pipeline execution.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +37,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/blzr/.repos/.dwm/config.def.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MakefileLocalSettings">
     <option name="availableProjects">
@@ -102,9 +74,9 @@
     <option name="minorVersion" value="1.1" />
     <option name="productBranch" value="Classic" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2fsefoPZzlxUqMhkOkukpEosTNK" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -124,16 +96,16 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/blzr/.repos/.dwm",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "application.passwordSafe",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Native Application.all">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Makefile" type="CLionNativeAppRunConfigurationType" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME=".dwm" TARGET_NAME="Makefile" CONFIG_NAME="Makefile" version="1">
       <method v="2">
         <option name="CLION.COMPOUND.BUILD" enabled="true" />
@@ -182,13 +154,36 @@
       <option name="presentableId" value="Default" />
       <updated>1714594318889</updated>
       <workItem from="1714594319897" duration="26000" />
+      <workItem from="1715228944752" duration="683000" />
     </task>
+    <task id="LOCAL-00001" summary="STABLE: The previous command syntax for screenshot clipping was malfunctioning. This was due to maim and xclip being used as separate commands. With this commit, they are combined into a single shell command ensuring proper pipeline execution.">
+      <option name="closed" value="true" />
+      <created>1715229479903</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715229479903</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="STABLE: The previous command syntax for screenshot clipping was malfunctioning. This was due to maim and xclip being used as separate commands. With this commit, they are combined into a single shell command ensuring proper pipeline execution." />
+    <option name="LAST_COMMIT_MESSAGE" value="STABLE: The previous command syntax for screenshot clipping was malfunctioning. This was due to maim and xclip being used as separate commands. With this commit, they are combined into a single shell command ensuring proper pipeline execution." />
   </component>
 </project>
