@@ -3,9 +3,9 @@
 #include <X11/XF86keysym.h>
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int gappx     = 32;        /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int snap      = 4;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "RobotoMono Nerd Font Mono:style=Bold:size=11:antialias=true:autohint=true", "JetBrainsMonoNL NF:style=Regular:size=11:antialias=true:autohint=true" };
@@ -35,6 +35,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1 },
+	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1 },
+
 	// Minecraft 
     	{ "Minecraft Launcher", NULL, NULL,   1 << 2,	    0,		 -1 }, //  Tag 3
 	{ "Modrinth-app", NULL,	  NULL,	      1 << 2,	    0,		 -1 }, //  Tag 3
@@ -100,7 +102,8 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
 
 // terminal++
-static const char *termnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
+// static const char *termnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
+static const char *termnvim[] = { "neovide", NULL };
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
