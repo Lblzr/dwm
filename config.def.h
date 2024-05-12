@@ -31,37 +31,37 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1 },
-	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1 },
+	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
+	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,        5 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,        5 },
+	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
+	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
 
 	// Minecraft 
-    	{ "Minecraft Launcher", NULL, NULL,   1 << 2,	    0,		 -1 }, //  Tag 3
-	{ "Modrinth-app", NULL,	  NULL,	      1 << 2,	    0,		 -1 }, //  Tag 3
+    	{ "Minecraft Launcher", NULL, NULL,   1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
+	{ "Modrinth-app", NULL,	  NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
 
    	// Steam 
-    	{ "steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1 }, //  Tag 3
-	{ NULL,	      NULL,	  "Steam",    1 << 2,	    0,		 -1 }, //  Tag 3
-	{ "steamwebhelper", NULL, NULL,	      1 << 2,	    0,		 -1 }, //  Tag 3
+    	{ "steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
+	{ NULL,	      NULL,	  "Steam",    1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
+	{ "steamwebhelper", NULL, NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
 
    	// Vivaldi & Vivaldi Stable
-  	{ "Vivaldi",  NULL,	  NULL,	      1 << 1,	    0,           -1 }, //  Tag 2
-	{ "Vivaldi-stable", NULL, NULL,	      1 << 1,	    0,		 -1 }, //  Tag 2
+  	{ "Vivaldi",  NULL,	  NULL,	      1 << 1,	    0,           -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 2
+	{ "Vivaldi-stable", NULL, NULL,	      1 << 1,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 2
 
    	// Vesktop (Discord)
-   	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1 }, //  Tag 9
+   	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 9
 
   	// Spotify 
-   	{ "Spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1 }, //  Tag 8
+   	{ "Spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 8
 
    	// VLC & players
-  	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1 }, //  Tag 5
-	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1 }, //  Tag 5
+  	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
+	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
 	
-	{ "jetbrains-toolbox", NULL, NULL,    1 << 0,	    1,		 -1 }, //  Tag 1
-	{ "jetbrains-idea", NULL, NULL,	      1 << 0,	    0,		 -1 }, //  Tag 1
+	{ "jetbrains-toolbox", NULL, NULL,    1 << 0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 1
+	{ "jetbrains-idea", NULL, NULL,	      1 << 0,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 1
 };
 
 /* layout(s) */
@@ -107,7 +107,7 @@ static const char *termnvim[] = { "neovide", NULL };
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
-static const char *scrclip[] = { "sh", "-c", "maim -o -s | xclip -selection clipboard -t image/png" };
+static const char *scrclip[] = { "sh", "-c", "maim -s | xsel -ib -a" };
 
 // volume
 static const char *vol_up[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
