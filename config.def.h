@@ -34,8 +34,14 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,        5 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,        5 },
+
+	// float rules
 	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
-	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
+	{ "nflt",     NULL,	  NULL,	      0,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
+
+	// nvim*
+	// 160x42+100+100
+	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1,	    100,100,-1,-1,	  -1 },
 
 	// Minecraft 
     	{ "Minecraft Launcher", NULL, NULL,   1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
@@ -65,7 +71,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -102,12 +108,13 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
 
 // terminal++
-// static const char *termnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
-static const char *termnvim[] = { "neovide", NULL };
+// static const char *flttermnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
+static const char *flttermnvim[] = { "neovide", "--x11-wm-class-instance", "flt", "--size", "160x42", NULL };
+static const char *termnvim[] = { "neovide", "--x11-wm-class-instance", "nflt", NULL };
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
-static const char *scrclip[] = { "sh", "-c", "maim -s | xsel -ib -a" };
+static const char *scrclip[] = { "sh", "-c", "maim -s | xclip -selection clipboard -t image/png" };
 
 // volume
 static const char *vol_up[] = { "amixer", "-q", "sset", "Master", "5%+", NULL };
@@ -125,8 +132,8 @@ static const Key keys[] = {
 	// Terminal
 	{ MODKEY|ShiftMask|ControlMask, XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return, spawn,	   {.v = termfloat } },
-	{ MODKEY|ShiftMask,		XK_backslash, spawn,	   {.v = termnvim } },
-
+	{ MODKEY|ShiftMask,		XK_backslash, spawn,	   {.v = flttermnvim } },
+	{ MODKEY|ShiftMask|ControlMask,	XK_backslash, spawn,	   {.v = termnvim } },
 	{ MODKEY,                       XK_semicolon, togglebar,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
