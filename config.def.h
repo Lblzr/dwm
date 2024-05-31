@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,        5 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,        5 },
+	{ NULL,	      NULL,	  "Picture in picture", 1 << 1, 1,	 -1,	    50,50,500,500,	  1 },
 
 	// float rules
 	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
@@ -41,37 +42,38 @@ static const Rule rules[] = {
 
 	// nvim*
 	// 160x42+100+100
-	{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1,	    100,100,-1,-1,	  -1 },
+	//{ "neovide",  NULL,	  NULL,	      0,	    1,		 -1,	    100,100,-1,-1,	  -1 },
 
 	// Minecraft 
     	{ "Minecraft Launcher", NULL, NULL,   1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
-	{ "Modrinth-app", NULL,	  NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
+	{ "Modrinth-app", NULL,	  NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
    	// Steam 
     	{ "steam",    NULL, 	  NULL,       1 << 2, 	    0, 		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
-	{ NULL,	      NULL,	  "Steam",    1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
-	{ "steamwebhelper", NULL, NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 3
+	{ NULL,	      NULL,	  "Steam",    1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
+	{ "steamwebhelper", NULL, NULL,	      1 << 2,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
    	// Vivaldi & Vivaldi Stable
   	{ "Vivaldi",  NULL,	  NULL,	      1 << 1,	    0,           -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 2
-	{ "Vivaldi-stable", NULL, NULL,	      1 << 1,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 2
+	{ "Vivaldi-stable", NULL, NULL,	      1 << 1,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
-   	// Vesktop (Discord)
-   	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 9
+   	// Discord
+	{ "discord",  NULL,	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 9
+   	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
   	// Spotify 
    	{ "Spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 8
 
    	// VLC & players
   	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
-	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
+	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 	
 	{ "jetbrains-toolbox", NULL, NULL,    1 << 0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 1
-	{ "jetbrains-idea", NULL, NULL,	      1 << 0,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 1
+	{ "jetbrains-idea", NULL, NULL,	      1 << 0,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 };
 
 /* layout(s) */
-static const float mfact     = 0.6; /* factor of master area size [0.05..0.95] */
+static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
@@ -108,9 +110,12 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL };
 
 // terminal++
+//  neovide
 // static const char *flttermnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
 static const char *flttermnvim[] = { "neovide", "--x11-wm-class-instance", "flt", "--size", "160x42", NULL };
 static const char *termnvim[] = { "neovide", "--x11-wm-class-instance", "nflt", NULL };
+//  colorpicker (WIP?)
+// static const char *colorpick[] = { "st", "-c", "flt", "-g", "42x8+48-47", "-e", "\"PS1='' && colorpicker && read\"" };
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
