@@ -4,7 +4,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 32;        /* gaps between windows */
+static const unsigned int gappx     = 35;        /* gaps between windows */
 static const unsigned int snap      = 4;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor    float x,y,w,h         floatborderpx*/
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1,        50,50,500,500,        5 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1,        50,50,500,500,        5 },
-	{ NULL,	      NULL,	  "Picture in picture", 1 << 1, 1,	 -1,	    50,50,500,500,	  1 },
+	{ NULL,	      NULL,	  "Picture in picture", (1 << 8) - 1, 1, -1,	    50,50,500,500,	  0 },
 
 	// float rules
 	{ "flt",      NULL,	  NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
@@ -61,15 +61,18 @@ static const Rule rules[] = {
 	{ "discord",  NULL,	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 9
    	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
-  	// Spotify 
-   	{ "Spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 8
-
-   	// VLC & players
+   	// Media
   	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
 	{ NULL,	      NULL,	  "player",   1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
+   	{ "Spotify",  NULL,	  NULL,	      1 << 7, 	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 8
+	{ "Sxiv",     NULL,	  NULL,	      0,	    1,		 -1,	    520,150,800,800,	  -1 },
 	
 	{ "jetbrains-toolbox", NULL, NULL,    1 << 0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 1
 	{ "jetbrains-idea", NULL, NULL,	      1 << 0,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
+
+	// etc programs/windows
+	{ "swatch",  NULL,	 NULL,	      0,	    1,		 -1,	    150,400,1400,300,	  -1 },
+	{ NULL,	     NULL,	 "MiniPlayer", 0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
 };
 
 /* layout(s) */
@@ -111,11 +114,13 @@ static const char *termfloat[] = { "st", "-c", "flt", "-g", "80x24+677+65", NULL
 
 // terminal++
 //  neovide
-// static const char *flttermnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
-static const char *flttermnvim[] = { "neovide", "--x11-wm-class-instance", "flt", "--size", "160x42", NULL };
-static const char *termnvim[] = { "neovide", "--x11-wm-class-instance", "nflt", NULL };
-//  colorpicker (WIP?)
-// static const char *colorpick[] = { "st", "-c", "flt", "-g", "42x8+48-47", "-e", "\"PS1='' && colorpicker && read\"" };
+//static const char *flttermnvim[] = { "st", "-c", "flt", "-g", "160x42+100+100", "-e", "nvim", NULL };
+//static const char *flttermnvim[] = { "neovide", "--x11-wm-class", "flt", "--size", "160x42", NULL };
+static const char *termnvim[] = { "neovide", "--x11-wm-class", "nflt", NULL };
+// --x11-wm-class-instance is probably better than --x11-wm-class, but the latter works a lot better
+// NVM, just straight up borked I guess
+//  colorpicker (WIP(?)(BORKED ASF RN))
+//static const char *colorpick[] = { "st", "-c", "flt", "-g", "42x8+48-47", "-e", "\"PS1='' && colorpicker && read\"" };
 
 // clipboard
 static const char *clipcmd[] = { "clipmenu", "-b", "-fn", dmenufont, NULL };
@@ -137,7 +142,8 @@ static const Key keys[] = {
 	// Terminal
 	{ MODKEY|ShiftMask|ControlMask, XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,		XK_Return, spawn,	   {.v = termfloat } },
-	{ MODKEY|ShiftMask,		XK_backslash, spawn,	   {.v = flttermnvim } },
+	// borked with rendering on dwm, insane lag, may be nvidia related.
+	//{ MODKEY|ShiftMask,		XK_backslash, spawn,	   {.v = flttermnvim } },
 	{ MODKEY|ShiftMask|ControlMask,	XK_backslash, spawn,	   {.v = termnvim } },
 	{ MODKEY,                       XK_semicolon, togglebar,   {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
