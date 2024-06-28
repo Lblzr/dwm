@@ -74,6 +74,7 @@ static const Rule rules[] = {
 	{ "swatch",  NULL,	 NULL,	      0,	    1,		 -1,	    150,400,1400,300,	  -1 },
 	{ NULL,	     NULL,	 "MiniPlayer", 0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
 	{ "scrcpy",  NULL,	 NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
+	{ "Gedit",   NULL,	 NULL,	      0,	    1,		 -1,	    -1,-1,-1,-1,	  -1 },
 };
 
 /* layout(s) */
