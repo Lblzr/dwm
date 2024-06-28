@@ -9,7 +9,7 @@ static unsigned int snap            = 4;         /* snap pixel */
 static int showbar                  = 1;         /* 0 means no bar */
 static int topbar                   = 1;         /* 0 means bottom bar */
 static char font[]                  = "RobotoMono Nerd Font Mono:style=Bold:size=11:antialias=true:autohint=true";
-static char dmenufont[]             = "monospace:size=10";
+static char dmenufont[]             = "RobotoMono Nerd Font Mono:style=Bold:size=11:antialias=true:autohint=true";
 static const char *fonts[]          = { font, "JetBrainsMonoNL NF:style=Regular:size=11:antialias=true:autohint=true" };
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
@@ -60,6 +60,7 @@ static const Rule rules[] = {
    	// Discord
 	{ "discord",  NULL,	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 9
    	{ "vesktop",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
+   	{ "sunroof",  NULL, 	  NULL,	      1 << 8,	    0,		 -1,	    -1,-1,-1,-1,	  -1 },
 
    	// Media
   	{ "vlc",      NULL,	  NULL,	      1 << 4,	    0,		 -1,	    -1,-1,-1,-1,	  -1 }, //  Tag 5
