@@ -203,6 +203,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_n,	   shiftview,	   {.i = +1 } },
 	{ MODKEY,			XK_v,	   spawn,	   {.v = clipcmd} },
 	{ 0,				XK_Print,  spawn,	   {.v = scrclip} },
+	{ MODKEY,			XK_F5,	   xrdb,	   {.v = NULL} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
